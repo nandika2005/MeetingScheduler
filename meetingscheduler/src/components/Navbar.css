@@ -1,0 +1,22 @@
+header{
+    width:100vw;
+    height: 8vh;
+    background-color: rgb(46, 99, 243);
+}
+nav h3{
+    margin-left:20px;
+}
+nav button{
+   margin-right:20px;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+}
+li{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}

@@ -1,0 +1,23 @@
+body{
+    margin: 0;
+    color: white;
+}
+.body{
+    color:black;
+    width:100vw;
+    height: 92vh;
+    text-align: center;
+}
+.body p{
+    margin-left:25%;
+    margin-right: 25%;
+    font-size: larger;
+    font-family: cursive;
+}
+.body button{
+    width: 150px;
+    height:20px;
+    background-color: rgb(46, 99, 243);
+    border-radius: 10px;
+    color:white;
+}

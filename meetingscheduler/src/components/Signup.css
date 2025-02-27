@@ -1,0 +1,25 @@
+form{
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    height: 80vh;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+label{
+    padding-top: 10px;
+}
+input{
+    padding: 10px;
+}
+button{
+    margin: 30px;
+    border-radius: 3px;
+    background-color: black;
+    color: white;
+}
+button:hover{
+    cursor:pointer;
+}
