@@ -1,4 +1,4 @@
-import GirlAnimation from './components/girlAnimation';
+import GirlAnimation from './components/GirlAnimation';
 import './components/Home.css'
 import MeetingAnimation from './components/MeetingAnime';
 const Home=()=>{
