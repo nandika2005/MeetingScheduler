@@ -27,8 +27,9 @@ button{
     border-radius: 3px;
     background-color: black;
     color: white;
-    margin-left:10px;
-    margin-right: 10px;
+    margin:10px;
+    padding: 0px;
+    width:50px;
 }
 button:hover{
     cursor:pointer;

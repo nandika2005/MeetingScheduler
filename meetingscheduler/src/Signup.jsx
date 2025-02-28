@@ -20,7 +20,9 @@ function Signup(){
       const message=req.data.message;
       alert(message);
    };
-   return <div>
+   return (
+   <div className='divi'> 
+   <h1>SignUp</h1>
    <form onSubmit={handleSubmit}>
    <label htmlFor="FName">FirstName:</label>
    <input type="text" value={firstName}onChange={e=>setFN(e.target.value)} placeholder="Enter your first name" required/>
@@ -33,8 +35,9 @@ function Signup(){
    <label htmlFor="PhName">PhoneNumber:</label>
    <input type="number" value={phoneNumber}onChange={e=>setPh(e.target.value)} placeholder="Enter your phoneNumber" required/>
    <div className='butt'><button>Submit</button></div>
-   <Link to="/login">Already have an account?</Link>
+   <Link to="/Login">Already have an account?</Link>
    </form>
    </div>
+   )
 }
-export default Signup; 
+export default Signup;
