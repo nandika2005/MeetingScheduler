@@ -11,7 +11,7 @@ const Signup = require("./models/Signupschema");
 const Meeting = require("./models/MeetingSchema");
 const Availability = require("./models/Availability");
 
-dotenv.config();
+dotenv.config(); 
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -25,20 +25,29 @@ mongoose
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.error("MongoDB Connection Error:", err));
 
-// Middleware for verifying JWT token
-const verifyToken = (req, res, next) => {
-  const token = req.headers["authorization"];
-  if (!token) return res.status(403).json({ message: "No token provided" });
+  const verifyToken = (req, res, next) => {
+    const tokenHeader = req.headers["authorization"];
+    console.log("Authorization Header:", tokenHeader); // Debugging
+  
+    if (!tokenHeader || !tokenHeader.startsWith("Bearer ")) {
+      return res.status(403).json({ message: "No token provided or incorrect format" });
+    }
+  
+    const token = tokenHeader.split(" ")[1]; // Extract correct token
+    console.log("Extracted Token:", token); // Debugging
+  
+    try {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      req.userId = decoded.userId;
+      console.log("Decoded User ID:", decoded.userId); // Debugging
+      next();
+    } catch (err) {
+      return res.status(401).json({ message: "Unauthorized - Invalid token" });
+    }
+  };
+  
+  
 
-  jwt.verify(token.split(" ")[1], process.env.JWT_SECRET, (err, decoded) => {
-    if (err) return res.status(401).json({ message: "Unauthorized" });
-
-    req.userId = decoded.userId;
-    next();
-  });
-};
-
-// User Signup
 app.post("/signup", async (req, res) => {
   try {
     const { firstName, lastName, email, password, phoneNumber } = req.body;
@@ -59,7 +68,6 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-// User Login
 app.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -104,8 +112,6 @@ app.get("/api/meetings", verifyToken, async (req, res) => {
     res.status(500).json({ message: "Error fetching meetings" });
   }
 });
-
-// Delete a meeting
 app.delete("/api/meetings/:id", verifyToken, async (req, res) => {
   try {
     await Meeting.findByIdAndDelete(req.params.id);
