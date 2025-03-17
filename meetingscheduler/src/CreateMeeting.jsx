@@ -21,7 +21,7 @@ const CreateMeeting = () => {
       try {
           const token = localStorage.getItem("token"); // Retrieve the token from localStorage
           const response = await axios.post(
-              "http://localhost:3002/api/meetings",
+              "https://meetingscheduler-0r5o.onrender.com/meetings",
               { meetingName, duration, meetingType, meetingURL: generatedURL },
               {
                   headers: { Authorization: token }, // Send token in the request header
@@ -38,7 +38,7 @@ const CreateMeeting = () => {
   const fetchMeetings = async () => {
       try {
           const token = localStorage.getItem("token");
-          const response = await axios.get("http://localhost:3002/api/meetings", {
+          const response = await axios.get("https://meetingscheduler-0r5o.onrender.com/api/meetings", {
               headers: { Authorization: token }, // Include token in request
           });
           setMeetings(response.data);
@@ -64,7 +64,7 @@ const CreateMeeting = () => {
         token = token.split(" ")[1]; // Remove duplicate "Bearer "
       }
   
-      const response = await axios.delete(`http://localhost:3002/api/meetings/${meetingId}`, {
+      const response = await axios.delete(`https://meetingscheduler-0r5o.onrender.com/api/meetings/${meetingId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",

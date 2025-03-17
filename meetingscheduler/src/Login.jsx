@@ -12,7 +12,7 @@ function Login() {
     e.preventDefault(); // Prevents page reload
 
     try {
-        const response = await axios.post("http://localhost:3002/login", { email, password });
+        const response = await axios.post("https://meetingscheduler-0r5o.onrender.com/login", { email, password });
 
         if (response.data.success) {
             localStorage.setItem("token", `Bearer ${response.data.token}`); // Store token
