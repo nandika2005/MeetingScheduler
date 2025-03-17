@@ -10,6 +10,9 @@
   color: white;
   height: 100%;
 }
+.sidebar h2{
+  color: white;
+}
 
 .sidebar ul {
   list-style: none;

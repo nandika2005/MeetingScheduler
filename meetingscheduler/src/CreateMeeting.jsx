@@ -48,14 +48,42 @@ const CreateMeeting = () => {
   };
   
 
-    const deleteMeeting = async (id) => {
-        try {
-            await axios.delete(`http://localhost:3002/api/meetings/${id}`);
-            fetchMeetings(); // Refresh meetings after deletion
-        } catch (error) {
-            console.error("Error deleting meeting:", error);
-        }
-    };
+  const deleteMeeting = async (meetingId) => {
+    try {
+      let token = localStorage.getItem("token");
+  
+      console.log("Token before sending:", token); // Debugging
+  
+      if (!token) {
+        console.error("No token found. Please log in again.");
+        return;
+      }
+  
+      // Ensure only one "Bearer" prefix
+      if (token.startsWith("Bearer ")) {
+        token = token.split(" ")[1]; // Remove duplicate "Bearer "
+      }
+  
+      const response = await axios.delete(`http://localhost:3002/api/meetings/${meetingId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+  
+      console.log("Meeting deleted successfully", response.data);
+  
+      // Update UI immediately after deletion
+      setMeetings((prevMeetings) => prevMeetings.filter(meeting => meeting._id !== meetingId));
+  
+    } catch (error) {
+      console.error("Error deleting meeting:", error.response?.data || error);
+    }
+  };
+  
+  
+  
+  
 
     return (
         <div className="create-meeting-container">

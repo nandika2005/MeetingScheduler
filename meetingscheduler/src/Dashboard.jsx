@@ -9,13 +9,13 @@ const Dashboard = () => {
         <h2>Dashboard</h2>
         <ul>
           <li>
-            <Link to="Create">📝 Create New Meeting</Link>
+            <Link to="Create">Create New Meeting</Link>
           </li>
           <li>
-            <Link to="Avail">✅ Availability</Link>
+            <Link to="Avail"> Availability</Link>
           </li>
           <li>
-            <Link to="Settings">⚙️ Settings</Link>
+            <Link to="Settings">⚙️Settings</Link>
           </li>
           <li>
             <Link to="/">Logout</Link>

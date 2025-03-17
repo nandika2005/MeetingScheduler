@@ -19,20 +19,6 @@
     border: 1px solid transparent;
     animation: glowing-border 2s infinite alternate;
   }
-  @keyframes glowing-border {
-    0% {
-      border-color: rgb(75, 49, 240);
-      box-shadow: 0 0 10px rgb(75, 49, 240);
-    }
-    50% {
-      border-color: rgb(48, 143, 147);
-      box-shadow: 0 0 15px rgb(69, 210, 184);
-    }
-    100% {
-      border-color: rgb(96, 91, 163);
-      box-shadow: 0 0 10px rgb(95, 92, 179);
-    }
-  }
   
   .p1 p {
     padding: 10px;

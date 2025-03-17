@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./components/Settings.css";
 
 const Settings = () => {
-  const [username, setUsername] = useState("John Doe");
-  const [email, setEmail] = useState("johndoe@example.com");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [notifications, setNotifications] = useState(true);
   const [timezone, setTimezone] = useState("GMT");
 
