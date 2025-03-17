@@ -21,7 +21,7 @@ const CreateMeeting = () => {
       try {
           const token = localStorage.getItem("token"); // Retrieve the token from localStorage
           const response = await axios.post(
-              "https://meetingscheduler-0r5o.onrender.com/meetings",
+              "https://meetingscheduler-0r5o.onrender.com/api/meetings",
               { meetingName, duration, meetingType, meetingURL: generatedURL },
               {
                   headers: { Authorization: token }, // Send token in the request header
