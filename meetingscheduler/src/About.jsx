@@ -15,7 +15,7 @@ const About = () => {
       </div>
       <WhyChooseMeetUp />
       <br />
-      <p>Join MeetUp today and experience the future of hassle-free scheduling! 🚀</p>
+      <p>Join MeetUp today and experience the future of hassle-free scheduling!</p>
     </div>
   );
 };

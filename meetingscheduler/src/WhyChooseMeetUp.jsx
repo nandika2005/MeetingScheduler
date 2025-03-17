@@ -1,6 +1,6 @@
 import InfiniteScroll from './components/InfiniteScroll.jsx';
 import React from "react";
-import "./WhyChooseMeetUp.css"; 
+import "./components/WhyChooseMeetUp.css"; 
 
 const items = [
   { content: "📅 Effortless Scheduling  Plan meetings with just a few clicks." },

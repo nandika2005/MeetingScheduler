@@ -3,8 +3,9 @@ body{
     color: white;
 }
 .body{
+    padding-top: 30px;
     width:100vw;
-    height: 92vh;
+    height: 93vh;
     text-align: center;
 }
 .body h1{
@@ -21,7 +22,7 @@ body{
 }
 .body button{
     width: 140px;
-    height:20px;
+    padding: 5px;
     background-color: rgb(46, 99, 243);
     border-radius: 10px;
     color:white;

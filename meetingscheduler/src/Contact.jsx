@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./components/Contact.css"
+import styles from "./components/Contact.module.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,11 +19,11 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact-container">
+    <div className={styles.contactContainer}>
       <h1>Contact Us</h1>
       <p>Have any questions or need support? We're here to help!</p>
 
-      <div className="contact-form">
+      <div className={styles.contactForm}>
         <form onSubmit={handleSubmit}>
           <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required />
           <input type="email" name="email" placeholder="Your Email" value={formData.email} onChange={handleChange} required />
@@ -32,9 +32,11 @@ const Contact = () => {
         </form>
       </div>
 
-      <h2>Other Ways to Reach Me</h2>
-      <p> Email: nandikamaheshwar6@gmail.com</p>
-      <p> Phone: +91 8778511554</p>
+      <div className={styles.contactDetails}>
+        <h2>Other Ways to Reach Me</h2>
+        <p>Email: nandikamaheshwar6@gmail.com</p>
+        <p>Phone: +91 8778511554</p>
+      </div>
     </div>
   );
 };

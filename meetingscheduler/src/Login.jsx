@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import "./components/Login.css";
+import styles from "./components/Login.module.css"; 
 import { useState } from "react";
 import axios from "axios";
 
@@ -8,54 +8,37 @@ function Login() {
   const [password, setPass] = useState("");
   const navigate = useNavigate(); 
 
-  const handleLogin = async (event) => {
-    event.preventDefault();
-    try {
-      const res = await axios.post("https://sjit2025-mern.onrender.com/login", {
-        email: email,
-        password: password,
-      });
+  const handleLogin = async (e) => {
+    e.preventDefault(); // Prevents page reload
 
-      if (res.data.success) {
-        localStorage.setItem("user", JSON.stringify(res.data.user)); 
-        alert("Login Successful!");
-        navigate("/dash"); 
-      } else {
-        alert(res.data.message);
-      }
+    try {
+        const response = await axios.post("http://localhost:3002/login", { email, password });
+
+        if (response.data.success) {
+            localStorage.setItem("token", `Bearer ${response.data.token}`); // Store token
+            console.log("Login successful, token stored.");
+            navigate("/Dash");  // Redirect to dashboard
+        }
     } catch (error) {
-      alert("Login failed. Please check your credentials.");
-      console.error("Login Error:", error);
+        console.error("Login failed:", error.response?.data || error.message);
     }
   };
 
   return (
-    <div className="divi">
+    <div className={styles.divi}>  
       <h1>Login</h1>
-      <form onSubmit={handleLogin}>
+      <form className={styles.log} onSubmit={handleLogin}>
         <label htmlFor="EName">Email ID:</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEm(e.target.value)}
-          placeholder="Enter your email"
-          required
-        />
+        <input type="email" value={email} onChange={(e) => setEm(e.target.value)} placeholder="Enter your email" required/>
 
         <label htmlFor="PName">Password:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPass(e.target.value)}
-          placeholder="Enter your password"
-          required
-        />
+        <input type="password" value={password} onChange={(e) => setPass(e.target.value)} placeholder="Enter your password" required/>
 
-        <div className="butt">
+        <div className={styles.butt}>
           <button type="submit">Submit</button>
         </div>
-        
-        <Link to="/signup">Create an account?</Link>
+
+        <Link className={styles.link} to="/signup">Create an account?</Link>
       </form>
     </div>
   );

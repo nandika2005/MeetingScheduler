@@ -1,0 +1,60 @@
+.availability-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin-left:240px;
+    margin-top: 100px;
+  }
+  .availability-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .availability-form label {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .availability-form select,
+  .availability-form input {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .availability-form button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .availability-form button:hover {
+    background-color: #218838;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  li button {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+  }
+  
